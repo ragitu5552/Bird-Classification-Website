@@ -4,17 +4,16 @@ from resnet50 import predict
 from PIL import Image
 from dotenv import load_dotenv
 import os
-from flask_wtf.csrf import CSRFProtect
+# from flask_wtf.csrf import CSRFProtect
 
 app = Flask(__name__)
 load_dotenv()
 
-# Access the secret key from environment variables
 secret_key = os.getenv('SECRET_KEY')
 if not secret_key:
     raise ValueError("No SECRET_KEY1 set for Flask application")
 app.config['SECRET_KEY'] = secret_key
-csrf = CSRFProtect(app)
+# csrf = CSRFProtect(app)
 
 @app.route("/", methods=['GET', 'POST'])
 @app.route("/home", methods=['GET', 'POST'])
